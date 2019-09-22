@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>components</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="js.js"></script>
+</head>
+<body>
+
+<div class="main">
+	<div class="wrapper">
+		<form action="">
+			<h1>{{ clicks }}</h1>
+			<hr>
+			<button @click.prevent="onClick" class="btn btn-success">Send</button>
+		</form>
+		<app-some
+			v-for="(elem, index) in values"
+			:key="index"
+			:min='elem.min'
+			:max='elem.max'
+		>
+		</app-some>
+	</div>
+	<hr>
+</div>
+
+
+
+
+<script>
+	Vue.component('app-some', {
+	  props:['min', 'max'],
+	  template: `
+	  <div>{{a}}</div>
+	  `,
+		data() {
+	    return {
+	      a: Math.floor(Math.random() * (this.max - this.min) + this.min),
+	    }
+		}
+	});
+
+  new Vue({
+    el: '.main',
+    data: {
+      clicks: 0,
+	    values: [
+		    {
+          min: 10,
+          max: 20,
+        },
+        {
+          min: 100,
+          max: 200,
+        },
+        {
+          min: 1000,
+          max: 2000,
+        },
+	    ]
+    },
+    methods: {
+      onClick() {
+        this.clicks++;
+      }
+    },
+    computed: {
+
+    }
+  });
+
+</script>
+</body>
+</html>

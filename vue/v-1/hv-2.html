@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css">
+		<script src="js.js"></script>
+	</head>
+<body>
+
+<div class="main">
+	<div class="wrapper">
+	</div>
+	<div class="progress">
+		<div class="progress-bar" role="progressbar"
+		     :style="progressWidth" aria-valuenow="0"
+		     aria-valuemin="0" aria-valuemax="100">
+
+		</div>
+	</div>
+
+	<form v-if="!formSubmited"  @submit.prevent="formSubmited = true">
+		<div class="form-group" v-for="(item, index) in  info">
+			<label>{{ item.name }}</label>
+			<span class="fa"
+			      v-if="!item.isEmpty"
+			      :class="item.error ?
+									'fa-exclamation-circle text-danger' :
+									'fa-check-circle text-success'"
+			></span>
+			<input type="text"
+			       class="form-control"
+			       :value="item.value"
+			       @input="onInput(index, $event.target.value)"
+			>
+		</div>
+		<hr>
+		<button :disabled="done < info.length" type="submit"
+		        class="btn btn-success">
+			Send data
+		</button>
+	</form>
+	<div v-else>
+		<table class="table table-bordered">
+			<tr v-for="(item, index) in  info">
+				<td>{{ item.name }}</td>
+				<td>{{ item.value }}</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+</div>
+
+
+
+
+<script>
+  let semple =  new Vue({
+    el: '.main',
+    data: {
+      info: [
+        {
+          name: 'Name',
+          value: '',
+          pattern: /^[a-zA-Z ]{2,30}$/,
+	        isEmpty: true,
+	        error: true,
+	        activated: false,
+        },
+        {
+          name: 'Phone',
+          value: '',
+          pattern: /^[0-9]{7,14}$/,
+	        isEmpty: true,
+	        error: true,
+	        activated: false,
+        },
+        {
+          name: 'Email',
+          value: '',
+          pattern: /.+/,
+	        isEmpty: true,
+	        error: true,
+	        activated: false,
+        },
+        {
+          name: 'Some Field 1',
+          value: '',
+          pattern: /.+/,
+	        isEmpty: true,
+	        error: true,
+	        activated: false,
+        },
+        {
+          name: 'Some Field 2',
+          value: '',
+          pattern: /.+/,
+	        isEmpty: true,
+	        error: true,
+	        activated: false,
+        }
+      ],
+      formSubmited: false
+    },
+    methods: {
+      onInput(index, value){
+        let data = this.info[index];
+        data.value = value;
+        data.isEmpty = false;
+        data.error = !data.pattern.test(value);
+        data.activated = true;
+      },
+    },
+    computed: {
+      done(){
+        let done = 0;
+
+        for(let i = 0; i < this.info.length; i++){
+          if(!this.info[i].error){
+            done++;
+          }
+        }
+
+        return done;
+      },
+      progressWidth(){
+        return {
+          width: (this.done / this.info.length * 100) + '%'
+        }
+      }
+    }
+  });
+
+</script>
+</body>
+</html>

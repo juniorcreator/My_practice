@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>props</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="js.js"></script>
+</head>
+<body>
+
+<div class="main">
+	<div class="wrapper">
+		<app-some
+			:a="1"
+		>
+		</app-some>
+	</div>
+	<hr>
+</div>
+
+<script>
+  Vue.component('app-some', {
+    props:['a'],
+	  template: `<div><div>{{a}}</div><hr></div>`,
+    data() {
+      return {
+
+      }
+    }
+  });
+
+  new Vue({
+    el: '.main',
+    data: {
+
+    },
+  });
+
+</script>
+</body>
+</html>

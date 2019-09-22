@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+
+		<h1>{{title}} = {{counter}}</h1>
+		<button @click="add(5,'5', $event)">+</button>
+		<button @click="add(10,'10', $event)">+</button>
+		<a href="https://google.com" @click.prevent="" target="_blank">google</a>
+	</div>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!',
+	    counter: 0,
+	    title: 'изменено'
+    },
+	  methods: {
+      add(num, str, event) {
+        this.counter += num;
+        this.title = 'changed to' + str;
+        if(num === 5) {
+          event.target.style.color = 'red';
+        }else {
+          event.target.style.color = 'blue';
+        }
+      },
+	  }
+  })
+</script>
+</body>
+</html>

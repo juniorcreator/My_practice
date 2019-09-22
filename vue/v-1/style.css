@@ -1,0 +1,29 @@
+.main {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.my-info {
+    font-size: 30px;
+}
+.my-warning {
+    font-size: 40px;
+}
+.table-some {
+    color: #fff;
+    background-color: #000;
+}
+.block {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: tomato;
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+.block p {
+    color: #fff;
+    word-break: break-word;
+}

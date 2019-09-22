@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>h-w-3</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="js.js"></script>
+</head>
+<body>
+
+<div class="main">
+	<div class="wrapper">
+	</div>
+
+
+	<form v-if="!formSubmited"  @submit.prevent="formSubmited = true">
+		<div class="block" @scroll="onScroll">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				Ad consequatur cumque cupiditate deserunt earum et, excepturi
+				fugiat itaque nesciunt, officiis pariatur placeat provident sed sint,
+				temporibus. A aliquid aspernatur, beatae dolores ducimus facere inventore laborum
+				libero minus modi molestiae neque, nesciunt ratione repudiandae saepe sequi vel vero.
+				Accusamus animi aperiam architecto aut blanditiis corporis delectus deserunt, doloremque
+				earum eius eos et fugiat fugit illum inventore magnam natus nisi non nulla numquam officiis
+				porro quis quisquam quod, repellat, sapiente similique sint temporibus tenetur totam unde veniam vero voluptate.
+				Ab ad aliquid consequatur consequuntur debitis est, explicabo numquam officia quibusdam,
+				reiciendis voluptatibus?
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				Ad consequatur cumque cupiditate deserunt earum et, excepturi
+				fugiat itaque nesciunt, officiis pariatur placeat provident sed sint,
+				temporibus. A aliquid aspernatur, beatae dolores ducimus facere inventore laborum
+				libero minus modi molestiae neque, nesciunt ratione repudiandae saepe sequi vel vero.
+				Accusamus animi aperiam architecto aut blanditiis corporis delectus deserunt, doloremque
+				earum eius eos et fugiat fugit illum inventore magnam natus nisi non nulla numquam officiis
+				porro quis quisquam quod, repellat, sapiente similique sint temporibus tenetur totam unde veniam vero voluptate.
+				Ab ad aliquid consequatur consequuntur debitis est, explicabo numquam officia quibusdam,
+				reiciendis voluptatibus?
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				Ad consequatur cumque cupiditate deserunt earum et, excepturi
+				fugiat itaque nesciunt, officiis pariatur placeat provident sed sint,
+				temporibus. A aliquid aspernatur, beatae dolores ducimus facere inventore laborum
+				libero minus modi molestiae neque, nesciunt ratione repudiandae saepe sequi vel vero.
+				Accusamus animi aperiam architecto aut blanditiis corporis delectus deserunt, doloremque
+				earum eius eos et fugiat fugit illum inventore magnam natus nisi non nulla numquam officiis
+				porro quis quisquam quod, repellat, sapiente similique sint temporibus tenetur totam unde veniam vero voluptate.
+				Ab ad aliquid consequatur consequuntur debitis est, explicabo numquam officia quibusdam,
+				reiciendis voluptatibus?
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				Ad consequatur cumque cupiditate deserunt earum et, excepturi
+				fugiat itaque nesciunt, officiis pariatur placeat provident sed sint,
+				temporibus. A aliquid aspernatur, beatae dolores ducimus facere inventore laborum
+				libero minus modi molestiae neque, nesciunt ratione repudiandae saepe sequi vel vero.
+				Accusamus animi aperiam architecto aut blanditiis corporis delectus deserunt, doloremque
+				earum eius eos et fugiat fugit illum inventore magnam natus nisi non nulla numquam officiis
+				porro quis quisquam quod, repellat, sapiente similique sint temporibus tenetur totam unde veniam vero voluptate.
+				Ab ad aliquid consequatur consequuntur debitis est, explicabo numquam officia quibusdam,
+				reiciendis voluptatibus?
+			</p>
+		</div>
+		<hr>
+		<div v-if="isScrolled">
+			I agree <input type='checkbox' v-model="agree"> <br>
+			work my date <input type='checkbox' v-model="myDate"> <br>
+			<hr>
+			<button type="submit" class="btn btn-success">
+				Send
+			</button>
+		</div>
+	</form>
+	<div v-else>
+		<table class="table table-bordered">
+			<tr>
+				<td>agree</td>
+				<td>{{agree}}</td>
+			</tr>
+			<tr>
+				<td>myDate</td>
+				<td>{{myDate}}</td>
+			</tr>
+			<tr>
+				<td>agree</td>
+				<td>{{agree}}</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+</div>
+
+
+
+
+<script>
+  let semple =  new Vue({
+    el: '.main',
+    data: {
+      formSubmited: false,
+	    isScrolled: false,
+      agree: false,
+	    myDate: false,
+    },
+    methods: {
+      onScroll ({ target: { scrollTop, clientHeight, scrollHeight }}) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          console.log('scroled');
+          this.isScrolled = true;
+        }
+      },
+
+    },
+    computed: {
+
+    }
+  });
+
+</script>
+</body>
+</html>

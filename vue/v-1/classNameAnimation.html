@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class name animation</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+	<script src="js.js"></script>
+</head>
+<body>
+
+<div class="main">
+	<div class="wrapper">
+		<div class="container">
+			<button class="btn btn-primary" @click="show = !show">Toggle</button>
+			<br>
+			<transition name="custom-classes-transition"
+			            enter-active-class="animated tada"
+			            leave-active-class="animated bounceOutRight"
+			            mode="out-in">
+				<div key="a" v-if="show" class="alert alert-success">
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+				</div>
+				<div key="b" v-else class="alert alert-danger">
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+				</div>
+			</transition>
+		</div>
+	</div>
+</div>
+
+<script>
+  let semple =  new Vue({
+    el: '.main',
+    data: {
+      name:'',
+      show: true,
+
+    },
+    methods: {
+
+    },
+
+
+  });
+
+</script>
+<style>
+	.btn {
+		margin: 10px 0;
+	}
+
+	@keyframes slideidn {
+		from {
+			transform: translateX(-2000px);
+		}
+		to {
+			transform: translateX(0px);
+		}
+	}
+	@keyframes slideout {
+		from {
+			transform: translateX(0px);
+		}
+		to {
+			transform: translateX(-2000px);
+		}
+	}
+</style>
+</body>
+</html>

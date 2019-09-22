@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<script src="js.js"></script>
+</head>
+<body>
+
+<div class="main">
+	<div class="wrapper">
+	</div>
+	<button @click="addNumber">add</button>
+	<button @click="sortNumbers">sort</button>
+	<ul class="list-group">
+		<li class="list-group-item"
+		    v-for="(number, index) in numbers"
+		    v-on:mouseenter="$event.target.style.color = 'red'"
+		    v-on:mouseleave="$event.target.style.color = 'black'">
+			{{index}} {{number}}
+		</li>
+	</ul>
+	<hr>
+	<ul class="list-group">
+		<li class="list-group-item"
+		    v-for="(val, key) in info">
+			{{key}} {{val}}
+		</li>
+	</ul>
+	<input type="text">
+
+</div>
+
+
+
+
+<script>
+	let semple =  new Vue({
+		el: '.main',
+		data: {
+		  numbers: [],
+			info: {
+		    name: 'serhii',
+				mail: 'admi.ru'
+			}
+		},
+		methods: {
+		  addNumber() {
+		    this.numbers.push(Math.floor(Math.random()*10 +1));
+		    this.sortNumbers();
+		  },
+      sortNumbers() {
+		    this.numbers.sort((a,b) => {
+		      return a > b ? 1 : -1;
+		    })
+      }
+		}
+	});
+
+</script>
+</body>
+</html>

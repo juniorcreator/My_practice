@@ -1,0 +1,34 @@
+{
+  "cars": [
+    {
+      "name": "ford",
+      "year": 2018,
+      "id": 1
+    },
+    {
+      "name": "car2",
+      "year": 2019,
+      "id": 2
+    },
+    {
+      "name": "zapor",
+      "year": 1990,
+      "id": 3
+    },
+    {
+      "name": "",
+      "year": "",
+      "id": 4
+    },
+    {
+      "name": "newcar",
+      "year": 2019,
+      "id": 5
+    },
+    {
+      "name": "Mercedec",
+      "year": 2018,
+      "id": 6
+    }
+  ]
+}

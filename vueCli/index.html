@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button @click="getHashtags">Load Hashtags</button>
+		<button @click="getCities">Load Cities</button>
+		<ul v-if="hashtags.length">
+			<li v-for="(hashtag, index) in hashtags">{{index}} {{hashtag}}</li>
+		</ul>
+
+		<ul v-if="cities.length">
+			<li v-for="(city, index) in cities">{{index}} City: {{city.city}}, Region: {{city.region}}</li>
+		</ul>
+
+
+
+
+	</div>
+	<script src="js.js"></script>
+</body>
+</html>

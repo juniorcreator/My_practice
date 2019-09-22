@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>between</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<script src="js.js"></script>
+</head>
+<body>
+
+<div class="main">
+	<div class="wrapper">
+		<div class="container">
+			<button class="btn btn-primary" @click="show = !show">Toggle</button>
+			<br>
+			<transition name="boom">
+				<div key="a" v-if="show" class="alert alert-success">
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+				</div>
+				<div key="b" v-else class="alert alert-danger">
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+				</div>
+			</transition>
+
+		</div>
+	</div>
+</div>
+
+<script>
+  let semple =  new Vue({
+    el: '.main',
+    data: {
+      name:'',
+      show: true,
+
+    },
+    methods: {
+
+    },
+
+
+  });
+
+</script>
+<style>
+	.btn {
+		margin: 10px 0;
+	}
+	.boom-enter {
+
+	}
+	.boom-enter-active {
+		animation: slideidn 0.5s;
+	}
+	.boom-enter-to {
+
+	}
+	.boom-leave {
+		position: absolute;
+	}
+	.boom-leave-active {
+		animation: slideout 0.5s;
+	}
+	.boom-leave-to {
+		position: absolute;
+
+	}
+	@keyframes slideidn {
+		from {
+			transform: translateX(-2000px);
+		}
+		to {
+			transform: translateX(0px);
+		}
+	}
+	@keyframes slideout {
+		from {
+			transform: translateX(0px);
+		}
+		to {
+			transform: translateX(-2000px);
+		}
+	}
+</style>
+</body>
+</html>

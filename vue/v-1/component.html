@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>component</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="js.js"></script>
+</head>
+<body>
+
+<div class="main">
+	<div class="wrapper">
+		<form action="">
+			<h1></h1>
+			<hr>
+			<button @click.prevent="onClick" class="btn btn-success">Send</button>
+		</form>
+		<app-some />
+	</div>
+	<hr>
+</div>
+
+
+
+
+<script>
+  Vue.component('app-ul', {
+    props:{},
+    template: `
+	  <div>
+	    <div>
+	    dwwdw
+			</div>
+			<hr>
+		</div>`,
+    data() {
+      return {
+
+      }
+    }
+  });
+
+  new Vue({
+    el: '.main',
+    data: {
+      data: [
+          'some',
+		      'items',
+		      'for',
+		      'list'
+      ]
+    },
+  });
+
+</script>
+</body>
+</html>

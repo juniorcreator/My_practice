@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<script src="js.js"></script>
+</head>
+<body>
+
+<div class="main">
+	<div class="wrapper">
+		<div class="container">
+			<button class="btn btn-primary" @click="show = !show">Toggle</button>
+			<br>
+			<transition name="i" appear>
+				<div v-show="show" class="alert alert-success">
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+					<div>some text about some</div>
+				</div>
+			</transition>
+
+		</div>
+	</div>
+
+	<hr>
+</div>
+
+<script>
+  let semple =  new Vue({
+    el: '.main',
+    data: {
+      name:'',
+	    show: true,
+
+    },
+    methods: {
+
+    },
+
+
+  });
+
+</script>
+<style>
+	.i-enter {
+		opacity: 0;
+	}
+	.i-enter-active {
+		transition: opacity .5s;
+	}
+	.i-enter-to {
+		opacity: 1;
+	}
+	.i-leave {
+	}
+	.i-leave-active {
+		transition: opacity .5s;
+	}
+	.i-leave-to {
+		opacity: 0;
+	}
+</style>
+</body>
+</html>
